@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody player;
     private float speed = 15.0f;
     private bool grounded;
+    [DllImport("SpeedUp")]
+    private static extern int SpeedUp(int min, int max);
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));//Moving left, right, up, and down
             if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
             {
-                player.AddForce(new Vector3(0, 14, 0), ForceMode.Impulse);//Jumping
+                player.AddForce(new Vector3(0, SpeedUp(1,10) + 7, 0), ForceMode.Impulse);//Jumping
             }
             player.MovePosition(transform.position + movement * Time.fixedDeltaTime * speed);//Adding all the different movement together
         }
