@@ -28,6 +28,10 @@ Trey Cowell - 100745472
 
 # Third Party Acknowledgements
 
+https://www.youtube.com/watch?v=_xMhkK6GTXA&t=15s
+
+The above link was a tutorial created to help understand how to pick up objects in Unity
+
 Optimization Pattern included is the Dirty Flag that we learned in Tutorial 7 of this course
 
 Command Design Pattern code used from Game Engines Tutorial 5.
